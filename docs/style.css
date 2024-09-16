@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "M PLUS Rounded 1c", "Yu Gothic UI", sans-serif;
+}
+
+p.small {
+    font-size: x-small;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.map-overlay {
+    position: fixed;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 15px;
+    margin-top: 15px;
+    margin-left: 15px;
+    z-index: 99999;
+    max-width: 35%;
+    max-height: 70%
+}
+
+#map-legend {
+    position: fixed;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 10px;
+    bottom: 0;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    z-index: 99999;
+}
+
+#colorbar-title {
+    font-size: smaller;
+}
+
+#colorbar {
+    width: 200px;
+    height: 20px;
+    opacity: 0.5;
+}
+
+#colorbar-labels span {
+    font-size: x-small
+}
+
+.colorbar-percent {
+    background: linear-gradient(to right, #ffffff, #0000ff);
+}
+
+.colorbar-change {
+    background: linear-gradient(to right, #ff0000, #ffffff, #00ff00);
+}
+
+#colorbar-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#colorbar-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* ----- settings overlay ----- */
+#settings-container {
+    background-color: #eeeeee;
+    /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 10px;
+    right: 0;
+    margin-top: 15px;
+    margin-right: 15px;
+    z-index: 99999;     */
+}
+
+/* toggle */
+input.toggle {
+    display: none;
+}
+
+.lbl-toggle {
+    display: block;
+    padding: 0px 5px;
+    font-weight: bold;
+    color: #333333;
+    background: #cccccc;
+    transition: all 0.25s ease-out;
+}
+
+.lbl-toggle:hover {
+    color: #ffffff;
+}
+
+div#settings {
+    max-height: 0px;
+    overflow: hidden;
+    padding: 0px 5px;
+    font-size: x-small;
+    transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + #settings {
+    max-height: 100vh;
+    padding: 5px;
+}
+
+.maplibregl-popup {
+    font-family: "M PLUS Rounded 1c", "Yu Gothic UI", sans-serif;    
+}
+
+.maplibregl-popup h3 {
+    border-bottom: 1px solid #333333;
+}
+
+.maplibregl-popup table {
+    width: 100%;
+}
+
+table .align-left {
+    text-align: left;
+    font-weight: bolder;
+}
+
+table .align-right {
+    text-align: right;
+}

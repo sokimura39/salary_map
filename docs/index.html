@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>国家公務員 地域手当マップ</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <!-- Maplibre -->
+    <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet">
+    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+
+    <!-- D3 -->
+    <script charset="utf-8" src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="map-overlay">
+        <h2>国家公務員 地域手当マップ</h2>
+        <p>［令和6年人事院勧告時点版］</p>
+        <p>人事院規則による国家公務員の各地域における地域手当の支給率と令和6年人事院勧告に伴う変化、国の機関の所在地を表示しています。</p>
+
+        <div id="settings-container">
+            <input id="settings-toggle" class="toggle" type="checkbox">
+            <label for="settings-toggle" class="lbl-toggle">表示設定</label>
+            <div id="settings">
+                <h4>地図の色分け基準</h4>
+                <form id="dataSelectionForm">
+                    <input type="radio" id="ds-1" name="dataSelection" value="present" checked>
+                    <label for="ds-1">現行の支給水準</label>
+                    <input type="radio" id="ds-2" name="dataSelection" value="proposed">
+                    <label for="ds-2">R6勧告での支給水準</label>
+                    <input type="radio" id="ds-3" name="dataSelection" value="difference">
+                    <label for="ds-3">変動幅</label>
+                </form>
+                <h4>国の機関所在地表示</h4>
+                <form id="showOfficesForm">
+                    <input type="radio" id="show-1" name="showOffices" value="on" checked>
+                    <label for="show-1">表示する</label>       
+                    <input type="radio" id="show-2" name="showOffices" value="off">
+                    <label for="show-2">表示しない</label>
+                </form>
+            </div>
+        </div>
+
+
+        <p class="small">自治体ごとの地域手当については<a href="https://laws.e-gov.go.jp/law/418RJNJ09049032/">人事院規則九―四九（地域手当）</a>第三条及び<a href="https://www.jinji.go.jp/seisaku/kankoku/archive/r6/r6_top.html">令和6年人事院勧告</a>による改定案に基づくものであり、例外規定等により各官署の実際の地域手当は異なる場合があります。また、一般職の国家公務員への手当に関する規定であり、それ以外の職員に対する手当は異なる場合があります。</p>
+
+        <p class="small"><a href="https://laws.e-gov.go.jp/law/418RJNJ09049032/">人事院規則九―四九（地域手当）</a>及び<a href="https://www.jinji.go.jp/seisaku/kankoku/archive/r6/r6_top.html">令和6年人事院勧告</a>を基に作成。機関所在地データは<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P28-2022.html">国土数値情報（国・都道府県の機関データ）</a>による。地図データは<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-2024.html">国土数値情報（行政区域データ）</a>および<a href="https://gadm.org/index.html">GADMデータ</a>による。</p>
+    </div>
+
+    <div id="map-legend">
+        <h3 id="colorbar-title">支給割合[%]</h3>
+        <div id="colorbar" class="colorbar-percent"></div>
+        <div id="colorbar-labels">
+            <span id="label-low">0</span>
+            <span id="label-middle">10</span>
+            <span id="label-high">20</span>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script charset="utf-8" src="map.js"></script>
+
+</body>
+</html>
