@@ -1,3 +1,15 @@
+// toggle visibility
+function toggleDiv() {
+    const div = document.getElementById("overlay-content");
+    if (div.style.display === "none") {
+        div.style.display = "block";
+        document.getElementById("toggle").innerHTML = "Hide";
+    } else {
+        div.style.display = "none";
+        document.getElementById("toggle").innerHTML = "Show";
+    }
+}
+
 // initialise map
 const map = new maplibregl.Map({
     container: 'map',
@@ -7,17 +19,14 @@ const map = new maplibregl.Map({
 });
 
 map.setMaxZoom(16);
-
 let hoveredId = null;
-
 map.on('load', function(){
-
     // load
     Promise.all([
-        d3.json('data/area_salary_simple.geojson'),
-        d3.json('data/gadm41_JPN_1.json'),
-        d3.json('data/offices_data.geojson'),
-        d3.json('data/fac_class.json')
+        fetch('data/area_salary_simple.geojson').then((response) => response.json()),
+        fetch('data/gadm41_JPN_1.json').then((response) => response.json()),
+        fetch('data/offices_data.geojson').then((response) => response.json()),
+        fetch('data/fac_class.json').then((response) => response.json())
     ]).then(function([area_geom, pref_geom, offices_data, fac_class]){
 
         // add sources
@@ -65,9 +74,9 @@ map.on('load', function(){
                 'fill-color': [
                     'interpolate-hcl', ['linear'], ['get', '地域手当_現行'],
                     0, "#ffffff",
-                    20, "#0000ff"
+                    20, "#0D5C63"
                 ],
-                'fill-opacity': 0.5,
+                'fill-opacity': 0.8,
                 'fill-outline-color': '#333333'
             }
         });
@@ -118,9 +127,10 @@ map.on('load', function(){
                 },
                 'paint': {
                     'circle-radius': 3,
-                    'circle-color': '#ffffff',
+                    'circle-color': '#555555',
                     'circle-stroke-width': 1,
-                    'circle-stroke-color': '#888888'
+                    'circle-stroke-color': '#eeeeee',
+                    'circle-opacity': 0.8
                 } 
             });
         }
@@ -232,7 +242,7 @@ map.on('load', function(){
             map.setPaintProperty('areas', 'fill-color', [
                 'interpolate-hcl', ['linear'], ['get', '地域手当_現行'],
                 0, "#ffffff",
-                20, "#0000ff"
+                20, "#0D5C63"
             ]);
             // change legend
             changeColorBar('percentage');
@@ -243,7 +253,7 @@ map.on('load', function(){
             map.setPaintProperty('areas', 'fill-color', [
                 'interpolate-hcl', ['linear'], ['get', '地域手当_勧告'],
                 0, "#ffffff",
-                20, "#0000ff"
+                20, "#0D5C63"
             ]);
             // change legend
             changeColorBar('percentage');
@@ -253,9 +263,9 @@ map.on('load', function(){
             // change background
             map.setPaintProperty('areas', 'fill-color', [
                 'interpolate-hcl', ['linear'], ['get', '地域手当_変動'],
-                -16, "#ff0000",
+                -16, "#C41A20",
                 0, "#ffffff",
-                16, "#00ff00"
+                16, "#65B891"
             ]);
             // change legend
             changeColorBar('change');
