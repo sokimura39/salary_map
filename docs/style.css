@@ -1,7 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "M PLUS Rounded 1c", "Yu Gothic UI", sans-serif;
+    font-family: "Zen Maru Gothic", "Yu Gothic UI", sans-serif;
+}
+
+h2, h3, h4 {
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 p.small {
@@ -129,7 +134,7 @@ div#settings {
 }
 
 .maplibregl-popup {
-    font-family: "M PLUS Rounded 1c", "Yu Gothic UI", sans-serif;    
+    font-family: "Zen Maru Gothic", "Yu Gothic UI", sans-serif;    
 }
 
 .maplibregl-popup h3 {

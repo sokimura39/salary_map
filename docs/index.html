@@ -12,7 +12,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <link href="style.css" rel="stylesheet">
 </head>
@@ -22,12 +22,12 @@
         <button onclick="toggleDiv()" id="toggle">Hide </button>
             <div id="overlay-content">
                 <h2>国家公務員 地域手当マップ<br>［令和6年人事院勧告時点版］</h2>
-                <p>人事院規則による国家公務員の各地域における地域手当の支給率と令和6年人事院勧告に伴う変化、国の機関の所在地を表示しています。</p>
+                <p>人事院規則による国家公務員の各地域における地域手当の支給率と、令和6年人事院勧告に伴う変化を表示します。</p>
                 <div id="settings-container">
                     <input id="settings-toggle" class="toggle" type="checkbox">
                     <label for="settings-toggle" class="lbl-toggle">表示設定</label>
                     <div id="settings">
-                        <h4>地図の色分け基準</h4>
+                        <h4>地図の色分け</h4>
                         <form id="dataSelectionForm">
                             <input type="radio" id="ds-1" name="dataSelection" value="present" checked>
                             <label for="ds-1">現行の支給水準</label>
@@ -47,7 +47,7 @@
                 </div>
 
 
-                <p class="small">自治体ごとの地域手当については<a href="https://laws.e-gov.go.jp/law/418RJNJ09049032/" target="_blank">人事院規則九―四九（地域手当）</a>第三条及び<a href="https://www.jinji.go.jp/seisaku/kankoku/archive/r6/r6_top.html" target="_blank">令和6年人事院勧告</a>による改定案に基づくものであり、例外規定等により各官署の実際の地域手当は異なる場合があります。また、一般職の国家公務員への手当に関する規定であり、それ以外の職員に対する手当は異なる場合があります。</p>
+                <p class="small">自治体ごとの地域手当については<a href="https://laws.e-gov.go.jp/law/418RJNJ09049032/" target="_blank">人事院規則九―四九（地域手当）</a>第三条及び<a href="https://www.jinji.go.jp/seisaku/kankoku/archive/r6/r6_top.html" target="_blank">令和6年人事院勧告</a>による改定案に基づくものであり、例外規定等により各機関の実際の地域手当は異なる場合があります。また、一般職の国家公務員への手当に関する規定であり、それ以外の職員に対する手当は異なる場合があります。</p>
                 <p class="small">誤り等を発見された場合は<a href="https://github.com/sokimura39/salary_map/issues" target="_blank">GitHubのIssue</a>よりご報告ください。</p>
 
                 <p class="small"><a href="https://laws.e-gov.go.jp/law/418RJNJ09049032/" target="_blank">人事院規則九―四九（地域手当）</a>及び<a href="https://www.jinji.go.jp/seisaku/kankoku/archive/r6/r6_top.html" target="_blank">令和6年人事院勧告</a>を基に作成。機関所在地データは<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P28-2022.html" target="_blank">国土数値情報（国・都道府県の機関データ）</a>による。地図データは<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-2024.html" target="_blank">国土数値情報（行政区域データ）</a>および<a href="https://gadm.org/index.html" target="_blank">GADMデータ</a>による。</p>
