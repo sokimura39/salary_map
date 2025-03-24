@@ -72,7 +72,7 @@ map.on('load', function(){
             },
             'paint': {
                 'fill-color': [
-                    'interpolate-hcl', ['linear'], ['get', '地域手当_現行'],
+                    'interpolate-hcl', ['linear'], ['get', '地域手当_勧告'],
                     0, "#ffffff",
                     20, "#0D5C63"
                 ],
@@ -187,7 +187,7 @@ map.on('load', function(){
             let sal_new = featureTemp['地域手当_勧告'];
             let sal_change = sal_new - sal_old;
 
-            let description = "<h3>" + name + "</h3><table><tr><td class=\"align-left\">現行地域手当</td><td class=\"align-right\">" + sal_old + "\%</td></tr><tr><td class=\"align-left\">R6勧告支給率</td><td class=\"align-right\">" + sal_new + "\%</td></tr><tr><td class=\"align-left\">変動幅</td><td class=\"align-right\">" + (sal_change<=0?"":"+") + sal_change + "</td></tr></table>"
+            let description = "<h3>" + name + "</h3><table><tr><td class=\"align-left\">従前の支給率</td><td class=\"align-right\">" + sal_old + "\%</td></tr><tr><td class=\"align-left\">R6勧告支給率</td><td class=\"align-right\">" + sal_new + "\%</td></tr><tr><td class=\"align-left\">変動幅</td><td class=\"align-right\">" + (sal_change<=0?"":"+") + sal_change + "</td></tr></table>"
 
             popup_areas.setLngLat(e.lngLat).setHTML(description).addTo(map);
         });
@@ -225,7 +225,7 @@ map.on('load', function(){
             let sal_old = e.features[0].properties['地域手当_現行'];
             let sal_new = e.features[0].properties['地域手当_勧告'];
             let sal_change = sal_new - sal_old;
-            let description = "<h3>" + name + "</h3><table><tr><td class=\"align-left\">機関分類</td><td class=\"align-right\">" + classification + "</td></tr><tr><td class=\"align-left\">所在地</td><td class=\"align-right\">" + munic + "</td></tr><!--<tr><td class=\"align-left\">現行地域手当</td><td class=\"align-right\">" + sal_old + "\%</td></tr><tr><td class=\"align-left\">R6勧告支給率</td><td class=\"align-right\">" + sal_new + "\%</td></tr><tr><td class=\"align-left\">変動幅</td><td class=\"align-right\">" + (sal_change<=0?"":"+") + sal_change + "</td></tr>--!></table>"
+            let description = "<h3>" + name + "</h3><table><tr><td class=\"align-left\">機関分類</td><td class=\"align-right\">" + classification + "</td></tr><tr><td class=\"align-left\">所在地</td><td class=\"align-right\">" + munic + "</td></tr><!--<tr><td class=\"align-left\">従前の支給率</td><td class=\"align-right\">" + sal_old + "\%</td></tr><tr><td class=\"align-left\">R6勧告支給率</td><td class=\"align-right\">" + sal_new + "\%</td></tr><tr><td class=\"align-left\">変動幅</td><td class=\"align-right\">" + (sal_change<=0?"":"+") + sal_change + "</td></tr>--!></table>"
 
             // update selection
             popup_offices.setLngLat(coordinates).setHTML(description).addTo(map);

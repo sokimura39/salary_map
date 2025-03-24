@@ -5,6 +5,21 @@
     <title>国家公務員 地域手当マップ</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
+    <!-- OGP -->
+    <meta property="og:url" content="https://sokimura39.github.io/salary_map/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="国家公務員 地域手当マップ">
+    <meta property="og:description" content="人事院規則による国家公務員の各地域における地域手当の支給率と、令和6年人事院勧告に伴う変化を表示します。">
+    <meta property="og:site_name" content="国家公務員 地域手当マップ">
+    <meta property="og:image" content="https://sokimura39.github.io/salary_map/ogp.png">
+
+    <!-- X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="国家公務員 地域手当マップ">
+    <meta name="twitter:description" content="人事院規則による国家公務員の各地域における地域手当の支給率と、令和6年人事院勧告に伴う変化を表示します。">
+    <meta name="twitter:image" content="https://sokimura39.github.io/salary_map/ogp.png">     
+    <meta name="twitter:url" content="https://sokimura39.github.io/salary_map/">    
+
     <!-- Maplibre -->
     <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet">
     <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
@@ -29,9 +44,9 @@
                     <div id="settings">
                         <h4>地図の色分け</h4>
                         <form id="dataSelectionForm">
-                            <input type="radio" id="ds-1" name="dataSelection" value="present" checked>
-                            <label for="ds-1">現行の支給水準</label>
-                            <input type="radio" id="ds-2" name="dataSelection" value="proposed">
+                            <input type="radio" id="ds-1" name="dataSelection" value="present">
+                            <label for="ds-1">従前の支給水準</label>
+                            <input type="radio" id="ds-2" name="dataSelection" value="proposed" checked>
                             <label for="ds-2">R6勧告での支給水準</label>
                             <input type="radio" id="ds-3" name="dataSelection" value="difference">
                             <label for="ds-3">変動幅</label>
